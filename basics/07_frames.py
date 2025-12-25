@@ -2,25 +2,31 @@ import tkinter as tk
 
 root = tk.Tk()
 root.title("Lesson 7 - Frames")
-root.geometry("400x300")
+root.geometry("600x300")
 
-frame_judul = tk.Frame(root, bg="green")
-frame_judul.pack(side="top", fill="x")
+left_frm = tk.Frame(root, bg="green")
+left_frm.pack(side="left", fill="both", expand=True)
 
-frame_isi = tk.Frame(root, bg="yellow")
-frame_isi.pack(side="top", fill="both", expand="True")
+right_frm = tk.LabelFrame(root, text="Informasi")
+right_frm.pack(side="right")
 
-frame_tombol = tk.Frame(root, bg="blue")
-frame_tombol.pack(side="bottom", fill="x")
+nama_lbl = tk.Label(left_frm, text="Nama")
+nama_lbl.grid(row=0, column=0, padx=5, pady=5)
 
-teks_judul = tk.Label(frame_judul, text="CONTOH FRAME JUDUL")
-teks_judul.pack()
+hobby_lbl = tk.Label(left_frm, text="Hobby")
+hobby_lbl.grid(row=1, column=0, padx=5, pady=5)
 
-teks_isi = tk.Label(frame_isi, text="CONTOH FRAME ISI")
-teks_isi.pack()
+nama_entry = tk.Entry(left_frm)
+nama_entry.grid(row=0, column=1, sticky="ew")
 
-tombol_ok = tk.Button(frame_tombol, text="OK")
-tombol_ok.pack()
+hobby_entry = tk.Entry(left_frm)
+hobby_entry.grid(row=1, column=1, sticky="ew")
+
+info_text = tk.Text(right_frm, width=30, height=10, wrap="word")
+info_text.pack()
+
+info_text.insert("1.0", "Text percobaan jadi kita coba saja masukan apa saja teks kedalam kotak sehingga semua akan menjadi baik baik saja")
+
 
 
 root.mainloop()
